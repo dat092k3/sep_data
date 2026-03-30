@@ -27,9 +27,8 @@ public class Inventory {
     @Column(name = "Stock")
     private int stock;
 
-    // Thêm Unit theo ERD
-    @Column(name = "Unit")
-    private String unit;
+    @Column(name = "Date")
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name = "BranchId")

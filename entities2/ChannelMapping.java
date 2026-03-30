@@ -21,8 +21,8 @@ public class ChannelMapping {
     @Column(name = "OtaRateId")
     private String otaRateId;
 
-    @Column(name = "RatePlanId")
-    private int ratePlanId;
+    @Column(name = "PriceModifierId")
+    private int priceModifierId;
 
     @ManyToOne
     @JoinColumn(name = "OtaAccountId")

@@ -19,7 +19,7 @@ public class Invoice {
     @Column(name = "InvoiceId")
     private int invoiceId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "BookingId", nullable = false)
     private Booking booking;
 
@@ -39,8 +39,7 @@ public class Invoice {
     @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
     private List<Payment> payments;
 
-    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
-    private List<InvoiceDetail> details;
+
 
     @PrePersist
     protected void onCreate() {

@@ -34,7 +34,7 @@ public class RoomType {
     @Column(name = "BasePrice")
     private BigDecimal basePrice;
 
-    @Column(name = "Image")
+    @Column(name = "Image", length = 2048)
     private String image;
 
     @Column(name = "Description")

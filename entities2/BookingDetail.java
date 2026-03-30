@@ -28,9 +28,9 @@ public class BookingDetail {
     private RoomType roomType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("ratePlanId")
-    @JoinColumn(name = "RatePlanId")
-    private RatePlan ratePlan;
+    @MapsId("priceModifierId")
+    @JoinColumn(name = "PriceModifierId", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    private PriceModifier priceModifier;
 
     @Column(name = "Quantity", nullable = false)
     private int quantity;
@@ -44,21 +44,23 @@ public class BookingDetail {
     public static class BookingDetailId implements Serializable {
         private int bookingId;
         private int roomTypeId;
-        private int ratePlanId;
+        private int priceModifierId;
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o)
+                return true;
+            if (o == null || getClass() != o.getClass())
+                return false;
             BookingDetailId that = (BookingDetailId) o;
             return bookingId == that.bookingId &&
-                   roomTypeId == that.roomTypeId &&
-                   ratePlanId == that.ratePlanId;
+                    roomTypeId == that.roomTypeId &&
+                    priceModifierId == that.priceModifierId;
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(bookingId, roomTypeId, ratePlanId);
+            return Objects.hash(bookingId, roomTypeId, priceModifierId);
         }
     }
 }

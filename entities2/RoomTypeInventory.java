@@ -36,8 +36,4 @@ public class RoomTypeInventory {
     @ManyToOne
     @JoinColumn(name = "RoomTypeId")
     private RoomType roomType;
-
-    @ManyToOne
-    @JoinColumn(name = "RatePlanId")
-    private RatePlan ratePlan;
 }
