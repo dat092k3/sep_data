@@ -20,11 +20,4 @@ public class Furniture {
 
     @Column(name = "Quality")
     private String quality;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id")
-    private FurnitureType furnitureType;
-
-    @Column(name = "Price")
-    private java.math.BigDecimal price;
 }

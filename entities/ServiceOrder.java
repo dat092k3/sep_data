@@ -27,6 +27,12 @@ public class ServiceOrder {
     @Column(name = "OrderPrice")
     private BigDecimal orderPrice;
 
+    @Column(name = "Description", columnDefinition = "varchar(255)")
+    private String description;
+
+    @Column(name = "PaymentStatus", columnDefinition = "varchar(50)")
+    private String paymentStatus;
+
     @ManyToOne
     @JoinColumn(name = "StayId")
     private Stay stay;

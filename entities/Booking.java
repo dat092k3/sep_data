@@ -50,6 +50,9 @@ public class Booking {
     @Column(name = "SpecialRequests", length = 500)
     private String specialRequests;
 
+    @Column(name = "LuggageNote", length = 500)
+    private String luggageNote;
+
     @Column(name = "CreatedAt", updatable = false)
     private LocalDateTime createdAt;
 
@@ -63,6 +66,9 @@ public class Booking {
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BookingDetail> bookingDetails;
+
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Invoice> invoices = new java.util.ArrayList<>();
 
     @PrePersist
     protected void onCreate() {

@@ -1,13 +1,16 @@
 package sep490.entities;
 
-import lombok.Data;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @Entity
 @Table(name = "Inventory")
-@Data // Tự sinh Get/Set với Lombok
+@Getter
+@Setter
 public class Inventory {
 
     @Id
@@ -18,19 +21,17 @@ public class Inventory {
     @Column(name = "InventoryName")
     private String inventoryName;
 
-    @Column(name = "Unit") // Thêm trường này theo UI (ĐVT: Cái, Gói)
-    private String unit;
-
     @Column(name = "Price")
     private BigDecimal price;
 
     @Column(name = "Stock")
     private int stock;
 
-    @Column(name = "Date")
-    private LocalDateTime date; // Ngày tạo
+    // Thêm Unit theo ERD
+    @Column(name = "Unit")
+    private String unit;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "BranchId")
-    private Branch branch; // Ánh xạ tới chi nhánh
+    private Branch branch;
 }
