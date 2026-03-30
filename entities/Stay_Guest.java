@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Table(name = "Stay_Guest")
 @Getter
 @Setter
-public class StayGuest {
+public class Stay_Guest {
 
     @EmbeddedId
     private StayGuestId id;

@@ -33,5 +33,16 @@ public class Incident {
     @ManyToOne
     @JoinColumn(name = "CreatedBy")
     private Users createdBy;
+
+    @Column(name = "ResolvedAt")
+    private LocalDateTime resolvedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "ResolvedBy")
+    private Users resolvedBy;
+
+    @Column(name = "Resolution", columnDefinition = "TEXT")
+    private String resolution; // How the issue was resolved
+    
 }
 
